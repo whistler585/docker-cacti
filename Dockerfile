@@ -15,8 +15,11 @@ ADD snmpd.conf /etc/snmp/snmpd.conf
 ADD cacti.conf /etc/dbconfig-common/cacti.conf
 ADD debian.conf /etc/cacti/debian.php
 ADD spine.conf /etc/cacti/spine.conf
+ADD pre-conf.sh /pre-conf.sh
 
-RUN (chmod 750 /start.sh && chmod 750 /etc/apache2/foreground.sh)
+RUN (chmod 750 /start.sh && chmod 750 /etc/apache2/foreground.sh && chmod 750 /pre-conf.sh)
+RUN (/bin/bash -c /pre-conf.sh)
+
 RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
