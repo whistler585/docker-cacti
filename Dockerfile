@@ -23,5 +23,5 @@ RUN (/bin/bash -c /pre-conf.sh)
 RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-EXPOSE 22 80
+EXPOSE 22 80 161
 CMD ["/bin/bash", "-e", "/start.sh"] 
