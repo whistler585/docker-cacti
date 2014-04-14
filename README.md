@@ -17,5 +17,3 @@ ssh to the container ( password for root is rootprovisional)
 
 passwd  ==> to change password ..
 
-
-note : still i have some problem to conf the snmp for it ...
