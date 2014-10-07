@@ -17,3 +17,4 @@ ssh to the container ( password for root is rootprovisional)
 
 passwd  ==> to change password ..
 
+Been move to another base-image ... no ready to be used at the momemt
