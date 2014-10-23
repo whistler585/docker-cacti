@@ -11,5 +11,5 @@ check the port for it and check browser at http://host:port/cacti/
 
 for configuration :
 
-docker-bash container-id   ==> to access the container ...
+docker exec -it container-id /bin/bash   ==> to access the container ...
 
