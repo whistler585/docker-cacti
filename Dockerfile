@@ -1,5 +1,5 @@
 #name of container: docker-cacti
-#versison of container: 0.5.1
+#versison of container: 0.5.2
 FROM quantumobject/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
@@ -9,7 +9,8 @@ ENV HOME /root
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted " >> /etc/apt/sources.list
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q cacti \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q build-essential \ 
+                                                            cacti \
                                                             snmpd \
                                                             cacti-spine \
                     && apt-get clean \
