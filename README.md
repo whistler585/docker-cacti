@@ -21,7 +21,7 @@ To run container use the command below:
 
     $ docker run -d -p 80 -p 161:161 quantumobject/docker-cacti
 
-## Accessing the Transmission applications:
+## Accessing the Cacti applications:
 
 After that check with your browser at addresses plus the port assigined by docker:
 
