@@ -29,9 +29,22 @@ After that check with your browser at addresses plus the port assigined by docke
 
 Them you can log-in admin/admin, Please change the password.
 
-To access the container from the server that the container is running :
+## To install plugins on cacti :
 
-    $ docker exec -it container_id /bin/bash
+To access the container from the server that the container is running
+
+     $ docker exec -it container_id /bin/bash
+
+change directory to plugins directory of the cacti ubuntu
+
+     $ cd /usr/share/cacti/site/plugins/
+
+download and unpack plugins
+
+     $ wget wget http://docs.cacti.net/_media/plugin:flowview-v1.1-1.tgz
+     $ gunzip -c plugin\:flowview-v1.1-1.tgz | tar xvf -
+
+and them access to cacti console/plugin management and install it and enable it.  
 
 ## More Info
 
