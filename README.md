@@ -46,7 +46,7 @@ download and unpack plugins
      $ mkdir -p /var/netflow/flows/completed
      $ chmod 777 /var/netflow/flows/completed
 
-and them access to cacti console/plugin management and install it and enable it. This only for example to install and configured flowview you need to check its documentation of the complete procedure for ubuntu.  
+and them access to cacti console/plugin management and install it and enable it. This is only for an example, to install and configured flowview you need to check its documentation of the complete procedure for ubuntu.  
 
 ## More Info
 
