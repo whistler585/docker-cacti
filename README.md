@@ -43,8 +43,10 @@ download and unpack plugins
 
      $ wget wget http://docs.cacti.net/_media/plugin:flowview-v1.1-1.tgz
      $ gunzip -c plugin\:flowview-v1.1-1.tgz | tar xvf -
+     $ mkdir -p /var/netflow/flows/completed
+     $ chmod 777 /var/netflow/flows/completed
 
-and them access to cacti console/plugin management and install it and enable it.  
+and them access to cacti console/plugin management and install it and enable it. This only for example to install and configured flowview you need to check its documentation of the complete procedure for ubuntu.  
 
 ## More Info
 
