@@ -1,6 +1,6 @@
 # docker-cacti
 
-Docker container for [cacti 0.8.8c][3]
+Docker container for [cacti 0.8.8b][3]
 
 "Cacti is a complete network graphing solution designed to harness the power of [RRDTool's][6] data storage and graphing functionality. Cacti provides a fast poller, advanced graph templating, multiple data acquisition methods, and user management features out of the box. All of this is wrapped in an intuitive, easy to use interface that makes sense for LAN-sized installations up to complex networks with hundreds of devices."
 
@@ -11,7 +11,7 @@ Docker container for [cacti 0.8.8c][3]
 To install docker in Ubuntu 14.04 use the commands:
 
     $ sudo apt-get update
-    $ sudo apt-get install docker.io
+    $ wget -qO- https://get.docker.com/ | sh
 
  To install docker in other operating systems check [docker online documentation][4]
 
@@ -54,7 +54,7 @@ To help improve this container [quantumobject/docker-cacti][5]
 
 [1]:http://www.cacti.net/
 [2]:https://www.docker.com
-[3]:http://www.cacti.net/release_notes_0_8_8c.php
+[3]:http://www.cacti.net/release_notes_0_8_8b.php
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-cacti
 [6]:http://oss.oetiker.ch/rrdtool
