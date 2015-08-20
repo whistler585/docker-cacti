@@ -6,6 +6,7 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
 RUN echo "deb http://archive.ubuntu.com/ubuntu wily-backports main restricted " >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily multiverse " >> /etc/apt/sources.list
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q build-essential \ 
                                                             cacti \
                                                             snmpd \
