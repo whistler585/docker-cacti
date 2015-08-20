@@ -1,12 +1,11 @@
 #name of container: docker-cacti
-#versison of container: 0.5.4
-FROM quantumobject/docker-baseimage
+#versison of container: 0.5.5
+FROM angelrr7702/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
-RUN echo "deb http://archive.ubuntu.com/ubuntu utopic-backports main restricted " >> /etc/apt/sources.list
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ utopic multiverse " >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu wily-backports main restricted " >> /etc/apt/sources.list
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q build-essential \ 
                                                             cacti \
                                                             snmpd \
