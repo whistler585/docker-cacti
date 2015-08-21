@@ -1,6 +1,6 @@
 #name of container: docker-cacti
 #versison of container: 0.5.5
-FROM angelrr7702/docker-baseimage
+FROM quantumobject/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 #add repository and update the container
