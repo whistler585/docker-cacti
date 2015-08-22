@@ -8,7 +8,6 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 RUN echo "deb http://archive.ubuntu.com/ubuntu wily-backports main restricted " >> /etc/apt/sources.list
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily multiverse " >> /etc/apt/sources.list
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q mysql-server \
-                   && rm /etc/mysql/conf.d/mysqld_safe_syslog.cnf  \
                    && mysql_install_db > /dev/null 2>&1 \ 
                    && touch /var/lib/mysql/.EMPTY_DB \
                    && DEBIAN_FRONTEND=noninteractive apt-get install -y -q build-essential \ 
