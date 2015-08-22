@@ -11,9 +11,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q build
                                                             cacti \
                                                             snmpd \
                                                             cacti-spine \
-                                                            python-netsnmp \
-                                                            libnet-snmp-perl \
-                                                            snmp-mibs-downloader \
                     && mysql_install_db > /dev/null 2>&1 \ 
                     && touch /var/lib/mysql/.EMPTY_DB \
                     && apt-get clean \
