@@ -7,7 +7,7 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 #Installation of nesesary package/software for this containers...
 RUN echo "deb http://archive.ubuntu.com/ubuntu wily-backports main restricted " >> /etc/apt/sources.list
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily multiverse " >> /etc/apt/sources.list
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q build-essential \ 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends build-essential \ 
                                                             cacti \
                                                             snmpd \
                                                             cacti-spine \
