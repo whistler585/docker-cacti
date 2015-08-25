@@ -1,19 +1,21 @@
 #name of container: docker-cacti
 #versison of container: 0.5.5
-FROM quantumobject/docker-baseimage
+FROM angelrr7702/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
 RUN echo "deb http://archive.ubuntu.com/ubuntu wily-backports main restricted " >> /etc/apt/sources.list
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ wily multiverse " >> /etc/apt/sources.list
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q build-essential \ 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq  build-essential \ 
                                                             cacti \
                                                             snmpd \
                                                             cacti-spine \
-                                                            python-netsnmp \
-                                                            libnet-snmp-perl \
+                                                            python-netsnmp \		
+                                                            libnet-snmp-perl \		
                                                             snmp-mibs-downloader \
+                    && mysql_install_db > /dev/null 2>&1 \ 
+                    && touch /var/lib/mysql/.EMPTY_DB \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
