@@ -1,0 +1,8 @@
+cacti:
+  image: quantumobject/docker-cacti
+  ports:
+   - "80:80"
+   - "161:161"
+  volumes:
+   - /etc/localtime:/etc/localtime:ro
+   - ./backups/:/var/backups/
