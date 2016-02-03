@@ -56,7 +56,8 @@ RUN chmod +x /sbin/pre-conf \
 ##scritp that can be running from the outside using docker-bash tool ...
 ## for example to create backup for database with convitation of VOLUME   dockers-bash container_ID backup_mysql
 COPY backup.sh /sbin/backup
-RUN chmod +x /sbin/backup
+COPY restore.sh /sbin/restore
+RUN chmod +x /sbin/backup /sbin/restore
 VOLUME /var/backups
 
 
