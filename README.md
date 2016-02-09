@@ -66,7 +66,7 @@ About Cacti [www.cacti.net][1]
 
 To help improve this container [quantumobject/docker-cacti][5]
 
-For additional info about us and our projects check our site [www.quantumobject.com][7]
+For additional info about us and our projects check our site [www.quantumobject.org][7]
 
 [1]:http://www.cacti.net/
 [2]:https://www.docker.com
@@ -74,4 +74,4 @@ For additional info about us and our projects check our site [www.quantumobject.
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-cacti
 [6]:http://oss.oetiker.ch/rrdtool
-[7]:http://www.quantumobject.com/
+[7]:https://www.quantumobject.org/
