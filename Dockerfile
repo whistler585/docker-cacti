@@ -56,7 +56,7 @@ COPY snmpd.sh /etc/service/snmpd/run
 COPY snmpd-log.sh /etc/service/snmpd/log/run
 RUN chmod +x /etc/service/snmpd/run /etc/service/snmpd/log/run \
     && cp /var/log/cron/config /var/log/snmpd/ \
-    && chown -R snmp /var/log/mysqld
+    && chown -R snmp /var/log/snmpd
 
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
