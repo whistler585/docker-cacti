@@ -21,7 +21,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq  build-
                     && rm -rf /var/lib/apt/lists/*
 
 # Ensure cron is allowed to run
-#RUN sed -i 's/^\(session\s\+required\s\+pam_loginuid\.so.*$\)/# \1/g' /etc/pam.d/cron
+RUN sed -i 's/^\(session\s\+required\s\+pam_loginuid\.so.*$\)/# \1/g' /etc/pam.d/cron
 
 ##startup scripts  
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't 
@@ -30,21 +30,33 @@ RUN mkdir -p /etc/my_init.d
 COPY startup.sh /etc/my_init.d/startup.sh
 RUN chmod +x /etc/my_init.d/startup.sh
 
-##Adding Deamons to containers
+##Adding Deamons to containers 
 # to add apache2 deamon to runit
-RUN mkdir /etc/service/apache2
+RUN mkdir -p /etc/service/apache2  /var/log/apache2 ; sync 
+RUN mkdir /etc/service/apache2/log
 COPY apache2.sh /etc/service/apache2/run
-RUN chmod +x /etc/service/apache2/run
+COPY apache2-log.sh /etc/service/apache2/log/run
+RUN chmod +x /etc/service/apache2/run /etc/service/apache2/log/run \
+    && cp /var/log/cron/config /var/log/apache2/ \
+    && chown -R www-data /var/log/apache2
 
 # to add mysqld deamon to runit
-RUN mkdir /etc/service/mysqld
+RUN mkdir -p /etc/service/mysqld /var/log/mysqld ; sync 
+RUN mkdir /etc/service/mysqld/log
 COPY mysqld.sh /etc/service/mysqld/run
-RUN chmod +x /etc/service/mysqld/run
+COPY mysqld-log.sh /etc/service/mysqld/log/run
+RUN chmod +x /etc/service/mysqld/run /etc/service/mysqld/log/run \
+    && cp /var/log/cron/config /var/log/mysqld/ \
+    && chown -R mysql /var/log/mysqld
 
 # to add mysqld deamon to runit
-RUN mkdir /etc/service/snmpd
+RUN mkdir -p /etc/service/snmpd /var/log/snmpd ; sync 
+RUN mkdir /etc/service/snmpd/log
 COPY snmpd.sh /etc/service/snmpd/run
-RUN chmod +x /etc/service/snmpd/run
+COPY snmpd-log.sh /etc/service/snmpd/log/run
+RUN chmod +x /etc/service/snmpd/run /etc/service/snmpd/log/run \
+    && cp /var/log/cron/config /var/log/snmpd/ \
+    && chown -R snmp /var/log/mysqld
 
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
