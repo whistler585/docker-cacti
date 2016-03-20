@@ -3,4 +3,4 @@
 # `chpst -u snmp ` runs the given command as the user `xxxxx`.
 # If you omit that part, the command will be run as root.
 
-exec chpst -u snmp /usr/sbin/snmpd
+exec chpst -u snmp /usr/sbin/snmpd 2>&1
