@@ -9,4 +9,4 @@ sv -w7 check mysqld
 #trap "kill -TERM -$pgrp; exit" EXIT TERM KILL SIGKILL SIGTERM SIGQUIT
 
 source /etc/apache2/envvars
-exec chpst -u root apache2ctl -D FOREGROUND  >>/var/log/apache2.log 2>&1
+exec chpst -u root apache2ctl -D FOREGROUND 2>&1
