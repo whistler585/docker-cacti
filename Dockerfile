@@ -33,28 +33,22 @@ RUN chmod +x /etc/my_init.d/startup.sh
 ##Adding Deamons to containers 
 # to add apache2 deamon to runit
 RUN mkdir -p /etc/service/apache2  /var/log/apache2 ; sync 
-RUN mkdir /etc/service/apache2/log
 COPY apache2.sh /etc/service/apache2/run
-COPY apache2-log.sh /etc/service/apache2/log/run
-RUN chmod +x /etc/service/apache2/run /etc/service/apache2/log/run \
+RUN chmod +x /etc/service/apache2/run  \
     && cp /var/log/cron/config /var/log/apache2/ \
     && chown -R www-data /var/log/apache2
 
 # to add mysqld deamon to runit
 RUN mkdir -p /etc/service/mysqld /var/log/mysqld ; sync 
-RUN mkdir /etc/service/mysqld/log
 COPY mysqld.sh /etc/service/mysqld/run
-COPY mysqld-log.sh /etc/service/mysqld/log/run
-RUN chmod +x /etc/service/mysqld/run /etc/service/mysqld/log/run \
+RUN chmod +x /etc/service/mysqld/run  \
     && cp /var/log/cron/config /var/log/mysqld/ \
     && chown -R mysql /var/log/mysqld
 
 # to add mysqld deamon to runit
 RUN mkdir -p /etc/service/snmpd /var/log/snmpd ; sync 
-RUN mkdir /etc/service/snmpd/log
 COPY snmpd.sh /etc/service/snmpd/run
-COPY snmpd-log.sh /etc/service/snmpd/log/run
-RUN chmod +x /etc/service/snmpd/run /etc/service/snmpd/log/run \
+RUN chmod +x /etc/service/snmpd/run  \
     && cp /var/log/cron/config /var/log/snmpd/ \
     && chown -R snmp /var/log/snmpd
 
