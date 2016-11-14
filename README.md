@@ -27,7 +27,7 @@ To run container use the command below:
 
 After that check with your browser at addresses plus the port assigined by docker:
 
-  - **http://host_ip:port/cacti/**
+  - **http://host_ip:port/**
 
 Them you can log-in admin/admin, Please change the password.
 
