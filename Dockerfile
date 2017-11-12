@@ -5,7 +5,7 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq  build-essential \ 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq  build-essential mariadb \ 
                                                             cacti \
                                                             snmpd \
                                                             cacti-spine \
