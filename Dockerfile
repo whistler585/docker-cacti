@@ -1,15 +1,10 @@
 #name of container: docker-cacti
-#versison of container: 0.5.7
-FROM quantumobject/docker-baseimage:15.10
+#versison of container: 0.6.1
+FROM quantumobject/docker-baseimage:16.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
-#add repository and update the container
+# Update the container
 #Installation of nesesary package/software for this containers...
-RUN echo "deb http://archive.ubuntu.com/ubuntu `cat /etc/container_environment/DISTRIB_CODENAME`-backports main restricted " >> /etc/apt/sources.list
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ `cat /etc/container_environment/DISTRIB_CODENAME` multiverse " >> /etc/apt/sources.list
-
-RUN sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
-
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq  build-essential \ 
                                                             cacti \
                                                             snmpd \
