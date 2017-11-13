@@ -21,6 +21,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq  build-
 # Ensure cron is allowed to run
 RUN sed -i 's/^\(session\s\+required\s\+pam_loginuid\.so.*$\)/# \1/g' /etc/pam.d/cron
 
+##Get Mibs
+RUN /usr/bin/download-mibs
+RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
+
 ##startup scripts  
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't 
 #run it again ... use for conf for service ... when run the first time ...
