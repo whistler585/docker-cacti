@@ -5,15 +5,16 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq  build-essential mariadb-server \ 
-                                                            cacti \
-                                                            snmpd \
-                                                            cacti-spine \
-                                                            python-netsnmp \		
-                                                            libnet-snmp-perl \		
-                                                            snmp-mibs-downloader \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server \ 
+                                                            apache2  libapache2-mod-php7.0\
+                                                            snmp rrdtool librrds-perl\
+                                                            php7.0-xml php7.0-ldap php7.0-mbstring \
+                                                            php7.0-gd php7.0-snmp php7.0-gmp \
                     && mysql_install_db > /dev/null 2>&1 \ 
                     && touch /var/lib/mysql/.EMPTY_DB \
+                    && wget https://www.cacti.net/downloads/cacti-1.1.27.tar.gz \
+                    && tar xvzf cacti-1.1.27.tar.gz
+                    && mv cacti-1.1.27 /opt/cacti
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
@@ -22,8 +23,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq  build-
 RUN sed -i 's/^\(session\s\+required\s\+pam_loginuid\.so.*$\)/# \1/g' /etc/pam.d/cron
 
 ##Get Mibs
-RUN /usr/bin/download-mibs
-RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
+#RUN /usr/bin/download-mibs
+#RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
 
 ##startup scripts  
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't 
