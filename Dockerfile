@@ -14,7 +14,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb
                     && wget https://www.cacti.net/downloads/cacti-latest.tar.gz \
                     && ver=$(tar -tf cacti-latest.tar.gz | head -n1 | tr -d /) \
                     && tar -xvf cacti-latest.tar.gz && mv $ver cacti \
-                    $$ rm cacti-latest.tar.gz \
+                    && rm cacti-latest.tar.gz \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
