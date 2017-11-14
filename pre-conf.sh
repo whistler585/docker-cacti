@@ -52,6 +52,5 @@ innodb_doublewrite = OFF
 innodb_flush_log_at_timeout = 10
 innodb_read_io_threads = 32
 innodb_write_io_threads = 16
-default-time-zone = 'America/New_York'
 " > /etc/mysql/my.cnf
 
