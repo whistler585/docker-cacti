@@ -5,11 +5,11 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server \ 
-                                                            apache2  libapache2-mod-php7.0\
-                                                            snmp rrdtool librrds-perl\
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server php7.0\ 
+                                                            apache2  libapache2-mod-php7.0 libssl-dev\
+                                                            snmp rrdtool librrds-perl php7.0-mysql\
                                                             php7.0-xml php7.0-ldap php7.0-mbstring \
-                                                            php7.0-gd php7.0-snmp php7.0-gmp \
+                                                            php7.0-gd php7.0-snmp php7.0-gmp php7.0-mcrypt \
                     && cd /opt/ \
                     && wget https://www.cacti.net/downloads/cacti-latest.tar.gz \
                     && ver=$(tar -tf cacti-latest.tar.gz | head -n1 | tr -d /) \
