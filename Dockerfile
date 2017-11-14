@@ -55,6 +55,14 @@ RUN chmod +x /etc/service/snmpd/run  \
     && cp /var/log/cron/config /var/log/snmpd/ \
     && chown -R snmp /var/log/snmpd
 
+#add files and script that need to be use for this container
+#include conf file relate to service/daemon 
+#additionsl tools to be use internally 
+COPY snmpd.conf /etc/snmp/snmpd.conf 
+COPY cacti.conf /etc/dbconfig-common/cacti.conf
+COPY debian.conf /etc/cacti/debian.php
+COPY spine.conf /etc/cacti/spine.conf
+
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
 COPY pre-conf.sh /sbin/pre-conf
@@ -69,14 +77,6 @@ COPY restore.sh /sbin/restore
 RUN chmod +x /sbin/backup /sbin/restore
 VOLUME /var/backups
 
-
-#add files and script that need to be use for this container
-#include conf file relate to service/daemon 
-#additionsl tools to be use internally 
-COPY snmpd.conf /etc/snmp/snmpd.conf 
-COPY cacti.conf /etc/dbconfig-common/cacti.conf
-COPY debian.conf /etc/cacti/debian.php
-COPY spine.conf /etc/cacti/spine.conf
 
 # to allow access from outside of the container  to the container service
 # at that ports need to allow access from firewall if need to access it outside of the server. 
