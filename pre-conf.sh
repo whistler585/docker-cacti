@@ -38,3 +38,20 @@
 
 killall mysqld
 sleep 2s
+
+mv /etc/mysql/my.cnf /etc/mysql/my.cnf-bkup
+echo "
+[mysqld]
+
+max_heap_table_size = 1073741824
+max_allowed_packet = 16777216
+tmp_table_size = 134217728
+join_buffer_size = 134217728
+innodb_buffer_pool_size = 4294967296
+innodb_doublewrite = OFF
+innodb_flush_log_at_timeout = 10
+innodb_read_io_threads = 32
+innodb_write_io_threads = 16
+default-time-zone = 'America/New_York'
+" > /etc/mysql/my.cnf
+
