@@ -1,6 +1,11 @@
 #!/bin/bash
 
+#Initial conf for mysql
+mysql_install_db
+#for configuriing database
 /usr/bin/mysqld_safe &
+
+ sleep 3s 
  
  mysqladmin -u root password mysqlpsswd
  mysqladmin -u root -pmysqlpsswd reload
