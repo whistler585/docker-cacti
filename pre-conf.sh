@@ -32,6 +32,9 @@
  
  # to set correct webroot for cacti (inplace edit of default apache2 site conf)
  perl -pi -e's@/var/www/html@/opt/cacti@g' /etc/apache2/sites-enabled/000-default.conf
+ 
+ #configure poller Crontab
+ echo "*/5 * * * * www-data php /opt/cacti/poller.php > /dev/null 2>&1" >> /etc/crontab 
 
 killall mysqld
-sleep 10s
+sleep 2s
