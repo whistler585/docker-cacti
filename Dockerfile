@@ -10,12 +10,11 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb
                                                             snmp rrdtool librrds-perl\
                                                             php7.0-xml php7.0-ldap php7.0-mbstring \
                                                             php7.0-gd php7.0-snmp php7.0-gmp \
-                    && mysql_install_db > /dev/null 2>&1 \ 
-                    && touch /var/lib/mysql/.EMPTY_DB \
                     && cd /opt/ \
                     && wget https://www.cacti.net/downloads/cacti-latest.tar.gz \
                     && ver=$(tar -tf cacti-latest.tar.gz | head -n1 | tr -d /) \
                     && tar -xvf cacti-latest.tar.gz && mv $ver cacti \
+                    $$ rm cacti-latest.tar.gz \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
