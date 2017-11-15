@@ -61,7 +61,7 @@ RUN chmod +x /etc/service/mysqld/run  \
 #COPY snmpd.conf /etc/snmp/snmpd.conf 
 #COPY cacti.conf /etc/dbconfig-common/cacti.conf
 COPY debian.conf /opt/cacti/include/config.php
-#COPY spine.conf /etc/cacti/spine.conf
+COPY spine.conf /usr/local/spine/etc/spine.conf
 
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
