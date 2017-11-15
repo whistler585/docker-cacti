@@ -46,5 +46,15 @@ innodb_doublewrite = OFF
 innodb_flush_log_at_timeout = 10
 innodb_read_io_threads = 32
 innodb_write_io_threads = 16
+innodb_additional_mem_pool_size = 80M
 " > /etc/mysql/my.cnf
+
+cd /opt/
+wget http://www.cacti.net/downloads/spine/cacti-spine-latest.tar.gz
+ver=$(tar -tf cacti-spine-latest.tar.gz | head -n1 | tr -d /)
+tar -xvf /opt/cacti-spine-latest.tar.gz
+cd /opt/$ver/
+./configure
+make
+make install
 
