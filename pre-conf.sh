@@ -50,7 +50,7 @@ innodb_additional_mem_pool_size = 80M
 collation-server = utf8_unicode_ci
 character-set-server=utf8
 " > /etc/mysql/my.cnf
-echo $TZ >> /etc/mysql/my.cnf
+echo 'default-time-zone = '$TZ >> /etc/mysql/my.cnf
 
 cd /opt/
 wget http://www.cacti.net/downloads/spine/cacti-spine-latest.tar.gz
