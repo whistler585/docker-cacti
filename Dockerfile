@@ -52,17 +52,16 @@ RUN chmod +x /etc/service/mysqld/run  \
     && chown -R mysql /var/log/mysqld
 
 # to add mysqld deamon to runit
-#RUN mkdir -p /etc/service/snmpd /var/log/snmpd ; sync 
-#COPY snmpd.sh /etc/service/snmpd/run
-#RUN chmod +x /etc/service/snmpd/run  \
-#    && cp /var/log/cron/config /var/log/snmpd/ \
-#    && chown -R snmp /var/log/snmpd
+RUN mkdir -p /etc/service/snmpd /var/log/snmpd ; sync 
+COPY snmpd.sh /etc/service/snmpd/run
+RUN chmod +x /etc/service/snmpd/run  \
+   && cp /var/log/cron/config /var/log/snmpd/ \
+   && chown -R snmp /var/log/snmpd
 
 #add files and script that need to be use for this container
 #include conf file relate to service/daemon 
 #additionsl tools to be use internally 
-#COPY snmpd.conf /etc/snmp/snmpd.conf 
-#COPY cacti.conf /etc/dbconfig-common/cacti.conf
+COPY snmpd.conf /etc/snmp/snmpd.conf 
 COPY debian.conf /opt/cacti/include/config.php
 COPY spine.conf /usr/local/spine/etc/spine.conf
 
