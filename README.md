@@ -31,15 +31,30 @@ After that check with your browser at addresses plus the port assigined by docke
 
 Them you can log-in admin/admin, Please change the password and when installing double check the path to Spine binary that suppose to be /usr/local/spine/bin/spine. 
 
+## Configuring Spine :
+
+Go to Configuration -> Settings and click on the Paths tab.
+
+Under the Alternate Poller Path, set the following:
+
+
+    Spine Binary File Location = /usr/local/spine/bin/spine
+    Spine Config File Path = /usr/local/spine/etc/spine.conf
+
+Click Save at the bottom right.
+
+Last is to make spine the active poller. Switch to the Poller tab and click on the drop down menu for Poller Type.Select spine and click save in the bottom right.
+
+
 ## To install plugins on cacti :
 
 To access the container from the server that the container is running
 
      $ docker exec -it container_id /bin/bash
 
-change directory to plugins directory of the cacti ubuntu
+change directory to plugins directory of the cacti  
 
-     $ cd /usr/share/cacti/site/plugins/
+     $ cd /opt/cacti/plugins/
 
 download and unpack plugins
 
@@ -48,7 +63,7 @@ download and unpack plugins
      $ mkdir -p /var/netflow/flows/completed
      $ chmod 777 /var/netflow/flows/completed
 
-and them access to cacti console/plugin management and install it and enable it. This is only for an example, to install and configured flowview you need to check its documentation of the complete procedure for ubuntu.  
+and them access to cacti console/plugin management and install it and enable it. This is only for an example, to install and configured flowview you need to check its documentation.  
 
 ## To backup, restore cacti database :
 
