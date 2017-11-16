@@ -39,7 +39,7 @@ Default value is America/New_York .
 
 After that check with your browser at addresses plus the port assigined by docker:
 
-  - **http://host_ip:port/**
+  - **http://host_ip:port/cacti/**
 
 Them you can log-in admin/admin, Please change the password and when installing double check the path to Spine binary that suppose to be /usr/local/spine/bin/spine. 
 
@@ -99,7 +99,7 @@ For additional info about us and our projects check our site [www.quantumobject.
 
 [1]:http://www.cacti.net/
 [2]:https://www.docker.com
-[3]:http://www.cacti.net/release_notes_0_8_8f.php
+[3]:http://www.cacti.net/
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-cacti
 [6]:http://oss.oetiker.ch/rrdtool
