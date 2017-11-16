@@ -51,7 +51,6 @@ collation-server = utf8mb4_unicode_ci
 character-set-server = utf8mb4
 character_set_client = utf8mb4
 " > /etc/mysql/my.cnf
-echo 'default-time-zone = '$TZ >> /etc/mysql/my.cnf
 
 cd /opt/
 wget http://www.cacti.net/downloads/spine/cacti-spine-latest.tar.gz
