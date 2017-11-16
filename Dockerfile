@@ -3,9 +3,11 @@
 FROM quantumobject/docker-baseimage:16.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
+ENV TZ America/New_York
+
 # Update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server php7.0 build-essential\ 
+RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server php7.0 build-essential\ 
                                                             apache2  libapache2-mod-php7.0 libssl-dev\
                                                             snmp rrdtool librrds-perl php7.0-mysql\
                                                             php7.0-xml php7.0-ldap php7.0-mbstring \
