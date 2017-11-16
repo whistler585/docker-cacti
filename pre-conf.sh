@@ -47,8 +47,10 @@ innodb_flush_log_at_timeout = 10
 innodb_read_io_threads = 32
 innodb_write_io_threads = 16
 innodb_additional_mem_pool_size = 80M
-default-time-zone = America/New_York
+collation-server = utf8_unicode_ci
+character-set-server=utf8
 " > /etc/mysql/my.cnf
+echo $TZ >> /etc/mysql/my.cnf
 
 cd /opt/
 wget http://www.cacti.net/downloads/spine/cacti-spine-latest.tar.gz
