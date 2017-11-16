@@ -13,6 +13,7 @@ RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive
                                                             php7.0-xml php7.0-ldap php7.0-mbstring \
                                                             php7.0-gd php7.0-snmp php7.0-gmp php7.0-mcrypt \
                                                             libmysqlclient-dev libmysqlclient-dev libsnmp-dev help2man \
+                                                            snmpd python-netsnmp libnet-snmp-perl snmp-mibs-downloader \
                     && cd /opt/ \
                     && wget https://www.cacti.net/downloads/cacti-latest.tar.gz \
                     && ver=$(tar -tf cacti-latest.tar.gz | head -n1 | tr -d /) \
