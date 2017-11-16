@@ -1,6 +1,6 @@
 # docker-cacti
 
-Docker container for [cacti 0.8.8f][3]
+Docker container for [cacti 1.1.27][3]
 
 "Cacti is a complete network graphing solution designed to harness the power of [RRDTool's][6] data storage and graphing functionality. Cacti provides a fast poller, advanced graph templating, multiple data acquisition methods, and user management features out of the box. All of this is wrapped in an intuitive, easy to use interface that makes sense for LAN-sized installations up to complex networks with hundreds of devices."
 
@@ -8,10 +8,10 @@ Docker container for [cacti 0.8.8f][3]
 
   - [Docker][2]
 
-To install docker in Ubuntu 14.04 use the commands:
+To install docker in Ubuntu 16.04 use the commands:
 
     $ sudo apt-get update
-    $ wget -qO- https://get.docker.com/ | sh
+    $ sudo wget -qO- https://get.docker.com/ | sh
 
  To install docker in other operating systems check [docker online documentation][4]
 
@@ -29,7 +29,22 @@ After that check with your browser at addresses plus the port assigined by docke
 
   - **http://host_ip:port/**
 
-Them you can log-in admin/admin, Please change the password.
+Them you can log-in admin/admin, Please change the password and when installing double check the path to Spine binary that suppose to be /usr/local/spine/bin/spine. 
+
+## Configuring Spine :
+
+Go to Configuration -> Settings and click on the Paths tab.
+
+Under the Alternate Poller Path, set the following:
+
+
+    Spine Binary File Location = /usr/local/spine/bin/spine
+    Spine Config File Path = /usr/local/spine/etc/spine.conf
+
+Click Save at the bottom right.
+
+Last is to make spine the active poller. Switch to the Poller tab and click on the drop down menu for Poller Type.Select spine and click save in the bottom right.
+
 
 ## To install plugins on cacti :
 
@@ -37,9 +52,9 @@ To access the container from the server that the container is running
 
      $ docker exec -it container_id /bin/bash
 
-change directory to plugins directory of the cacti ubuntu
+change directory to plugins directory of the cacti  
 
-     $ cd /usr/share/cacti/site/plugins/
+     $ cd /opt/cacti/plugins/
 
 download and unpack plugins
 
@@ -48,7 +63,7 @@ download and unpack plugins
      $ mkdir -p /var/netflow/flows/completed
      $ chmod 777 /var/netflow/flows/completed
 
-and them access to cacti console/plugin management and install it and enable it. This is only for an example, to install and configured flowview you need to check its documentation of the complete procedure for ubuntu.  
+and them access to cacti console/plugin management and install it and enable it. This is only for an example, to install and configured flowview you need to check its documentation.  
 
 ## To backup, restore cacti database :
 
