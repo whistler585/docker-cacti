@@ -23,6 +23,18 @@ To run container use the command below:
 
 ** -p 161:161  ==> remove to make sure you can monitor container and server running the container , this second more important to be able to monitoring all network interface of the server.
 
+## Set the timezone per environment variable:
+
+    -e TZ=Europe/London
+  
+or in yml:
+
+  environment:
+  
+     - TZ=Europe/London
+   
+Default value is America/New_York .   
+
 ## Accessing the Cacti applications:
 
 After that check with your browser at addresses plus the port assigined by docker:
