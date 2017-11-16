@@ -29,7 +29,7 @@ After that check with your browser at addresses plus the port assigined by docke
 
   - **http://host_ip:port/**
 
-Them you can log-in admin/admin, Please change the password.
+Them you can log-in admin/admin, Please change the password and when installing double check the path to Spine binary that suppose to be /usr/local/spine/bin/spine. 
 
 ## To install plugins on cacti :
 
