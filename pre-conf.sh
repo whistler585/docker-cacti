@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+touch /opt/cacti/log/cacti.log
 chown -R www-data:www-data /opt/cacti/
 
 #Initial conf for mysql
