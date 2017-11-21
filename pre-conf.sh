@@ -46,10 +46,8 @@ innodb_doublewrite = OFF
 innodb_flush_log_at_timeout = 10
 innodb_read_io_threads = 32
 innodb_write_io_threads = 16
-innodb_additional_mem_pool_size = 80M
 collation-server = utf8mb4_unicode_ci
 character-set-server = utf8mb4
-character_set_client = utf8mb4
 " > /etc/mysql/my.cnf
 
 cd /opt/
