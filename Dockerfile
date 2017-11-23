@@ -12,7 +12,7 @@ RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive
                                                             snmp rrdtool librrds-perl php7.0-mysql\
                                                             php7.0-xml php7.0-ldap php7.0-mbstring \
                                                             php7.0-gd php7.0-snmp php7.0-gmp php7.0-mcrypt \
-                                                            libmysqlclient-dev libmysqlclient-dev libsnmp-dev help2man \
+                                                            libmysqlclient-dev libsnmp-dev help2man \
                                                             snmpd python-netsnmp libnet-snmp-perl snmp-mibs-downloader \
                     && cd /opt/ \
                     && wget https://www.cacti.net/downloads/cacti-latest.tar.gz \
@@ -27,8 +27,8 @@ RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive
 RUN sed -i 's/^\(session\s\+required\s\+pam_loginuid\.so.*$\)/# \1/g' /etc/pam.d/cron
 
 ##Get Mibs
-#RUN /usr/bin/download-mibs
-#RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
+RUN /usr/bin/download-mibs
+RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
 
 ##startup scripts  
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't 
