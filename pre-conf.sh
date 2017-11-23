@@ -12,13 +12,13 @@ mysql_install_db
   
  mysqladmin -u root password mysqlpsswd
  mysqladmin -u root -pmysqlpsswd reload
- mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -pmysqlpsswd mysql
  mysqladmin -u root -pmysqlpsswd create cacti
- mysql -u root -pmysqlpsswd cacti < /opt/cacti/cacti.sql
- 
  echo "GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY '9PIu8AbWQSf8'; flush privileges; " | mysql -u root -pmysqlpsswd 
  echo "GRANT SELECT ON mysql.time_zone_name TO cacti@localhost IDENTIFIED BY '9PIu8AbWQSf8'; flush privileges; " | mysql -u root -pmysqlpsswd 
-
+ 
+ mysql -u root -pmysqlpsswd cacti < /opt/cacti/cacti.sql
+ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -pmysqlpsswd mysql
+ 
  
  #to fix error relate to ip address of container apache2
  echo "ServerName localhost" | tee /etc/apache2/conf-available/fqdn.conf
