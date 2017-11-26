@@ -8,7 +8,7 @@ ENV TZ America/New_York
 # Update the container
 #Installation of nesesary package/software for this containers...
  RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server mariadb-client php7.0 build-essential\ 
-                                                            apache2  libapache2-mod-php7.0 libssl-dev \
+                                                            apache2  snmp libapache2-mod-php7.0 libssl-dev \
                                                             rrdtool librrds-perl php7.0-mysql\
                                                             php7.0-xml php7.0-ldap php7.0-mbstring \
                                                             php7.0-gd php7.0-snmp php7.0-gmp php7.0-mcrypt \
@@ -29,6 +29,12 @@ RUN sed -i 's/^\(session\s\+required\s\+pam_loginuid\.so.*$\)/# \1/g' /etc/pam.d
 ##Get Mibs
 RUN /usr/bin/download-mibs
 RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
+## fix prblem with mibs downloader and ubuntu 16.04
+RUN rm /usr/share/mibs/ietf/IPSEC-SPD-MIB \
+    && rm /usr/share/mibs/ietf/IPSEC-SPD-MIB \
+    && rm /usr/share/mibs/ietf/IPATM-IPMC-MIB \
+    && rm /usr/share/mibs/iana/IANA-IPPM-METRICS-REGISTRY-MIB \
+    && rm /usr/share/mibs/ietf/SNMPv2-PDU
 
 ##startup scripts  
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't 
