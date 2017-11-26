@@ -31,7 +31,6 @@ RUN /usr/bin/download-mibs
 RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
 ## fix prblem with mibs downloader and ubuntu 16.04
 RUN rm /usr/share/mibs/ietf/IPSEC-SPD-MIB \
-    && rm /usr/share/mibs/ietf/IPSEC-SPD-MIB \
     && rm /usr/share/mibs/ietf/IPATM-IPMC-MIB \
     && rm /usr/share/mibs/iana/IANA-IPPM-METRICS-REGISTRY-MIB \
     && rm /usr/share/mibs/ietf/SNMPv2-PDU
