@@ -1,5 +1,11 @@
 #!/bin/bash
 
+cd /opt/cacti/plugins
+# download the source
+git clone -b master https://github.com/Cacti/plugin_thold.git
+# rename it to thold, yes it matters...
+mv plugin_thold thold
+
 touch /opt/cacti/log/cacti.log
 chown -R www-data:www-data /opt/cacti/
 
