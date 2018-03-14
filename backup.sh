@@ -9,4 +9,4 @@ mysqldump -u root -pmysqlpsswd --all-databases > /var/backups/alldb_backup.sql
 cp  /etc/hosts  /var/backups/
 
 #Backup importand files relate to app
-tar czf /var/backups/rra.tar.gz /var/lib/cacti/rra/
+tar czf /var/backups/rra.tar.gz /opt/cacti/rra/
