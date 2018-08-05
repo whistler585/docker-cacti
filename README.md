@@ -1,6 +1,6 @@
 # docker-cacti
 
-Docker container for [cacti 1.1.28][3]
+Docker container for [cacti 1.1.38][3]
 
 "Cacti is a complete network graphing solution designed to harness the power of [RRDTool's][6] data storage and graphing functionality. Cacti provides a fast poller, advanced graph templating, multiple data acquisition methods, and user management features out of the box. All of this is wrapped in an intuitive, easy to use interface that makes sense for LAN-sized installations up to complex networks with hundreds of devices."
 
@@ -8,7 +8,7 @@ Docker container for [cacti 1.1.28][3]
 
   - [Docker][2]
 
-To install docker in Ubuntu 16.04 use the commands:
+To install docker in Ubuntu 18.04 use the commands:
 
     $ sudo apt-get update
     $ sudo wget -qO- https://get.docker.com/ | sh
@@ -70,8 +70,8 @@ change directory to plugins directory of the cacti
 
 download and unpack plugins
 
-     $ wget wget http://docs.cacti.net/_media/plugin:flowview-v1.1-1.tgz
-     $ gunzip -c plugin\:flowview-v1.1-1.tgz | tar xvf -
+     $ wget https://github.com/Cacti/plugin_flowview/archive/develop.zip
+     $ unzip develop.zip
      $ mkdir -p /var/netflow/flows/completed
      $ chmod 777 /var/netflow/flows/completed
 
