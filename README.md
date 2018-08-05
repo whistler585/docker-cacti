@@ -75,7 +75,7 @@ download and unpack plugins
      $ mkdir -p /var/netflow/flows/completed
      $ chmod 777 /var/netflow/flows/completed
 
-and them access to cacti console/plugin management and install it and enable it. This is only for an example, to install and configured flowview you need to check its documentation.  
+and them access to cacti console/plugin management and install it and enable it. This is only for an example, to install and configured flowview you need to check its documentation.  [https://github.com/Cacti/plugin_flowview/blob/develop/README.md][8]
 
 ## To backup, restore cacti database :
 
@@ -104,3 +104,4 @@ For additional info about us and our projects check our site [www.quantumobject.
 [5]:https://github.com/QuantumObject/docker-cacti
 [6]:http://oss.oetiker.ch/rrdtool
 [7]:https://www.quantumobject.org/
+[8]:https://github.com/Cacti/plugin_flowview/blob/develop/README.md
