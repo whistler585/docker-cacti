@@ -7,11 +7,13 @@ ENV TZ America/New_York
 
 # Update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server mariadb-client php7.2 build-essential\
-                                                            apache2  snmp libapache2-mod-php7.2 libssl-dev \
-                                                            rrdtool librrds-perl php7.2-mysql\
-                                                            php7.2-xml php7.2-ldap php7.2-mbstring \
-                                                            php7.2-gd php7.2-snmp php7.2-gmp php7.2-mcrypt \
+RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server mariadb-client php build-essential\
+                                                            apache2 snmp libapache2-mod-php libssl-dev \
+                                                            rrdtool librrds-perl php-mysql php-pear \
+                                                            php-common php-json php-gettext \
+                                                            php-pspell php-recode php-tidy php-xmlrpc \
+                                                            php-xml php-ldap php-mbstring php-intl \
+                                                            php-gd php-snmp php-gmp php-curl php-net-socket\
                                                             libmysqlclient-dev libsnmp-dev help2man git \
                                                             snmpd python-netsnmp libnet-snmp-perl snmp-mibs-downloader \
                                                             iputils-ping \
