@@ -1,17 +1,17 @@
 #name of container: docker-cacti
-#versison of container: 0.6.1
-FROM quantumobject/docker-baseimage:16.04
+#versison of container: 0.6.2
+FROM quantumobject/docker-baseimage:18.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 ENV TZ America/New_York
 
 # Update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server mariadb-client php7.0 build-essential\
-                                                            apache2  snmp libapache2-mod-php7.0 libssl-dev \
-                                                            rrdtool librrds-perl php7.0-mysql\
-                                                            php7.0-xml php7.0-ldap php7.0-mbstring \
-                                                            php7.0-gd php7.0-snmp php7.0-gmp php7.0-mcrypt \
+RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server mariadb-client php7.2 build-essential\
+                                                            apache2  snmp libapache2-mod-php7.2 libssl-dev \
+                                                            rrdtool librrds-perl php7.2-mysql\
+                                                            php7.2-xml php7.2-ldap php7.2-mbstring \
+                                                            php7.2-gd php7.2-snmp php7.2-gmp php7.2-mcrypt \
                                                             libmysqlclient-dev libsnmp-dev help2man git \
                                                             snmpd python-netsnmp libnet-snmp-perl snmp-mibs-downloader \
                                                             iputils-ping \
