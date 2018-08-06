@@ -60,7 +60,7 @@ RUN mkdir -p /etc/service/snmpd /var/log/snmpd ; sync
 COPY snmpd.sh /etc/service/snmpd/run
 RUN chmod +x /etc/service/snmpd/run  \
    && cp /var/log/cron/config /var/log/snmpd/ \
-   && chown -R snmp /var/log/snmpd
+   && chown -R Debian-snmp /var/log/snmpd
 
 #add files and script that need to be use for this container
 #include conf file relate to service/daemon
