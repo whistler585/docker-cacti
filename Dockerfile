@@ -32,6 +32,11 @@ RUN sed -i 's/^\(session\s\+required\s\+pam_loginuid\.so.*$\)/# \1/g' /etc/pam.d
 ##Get Mibs
 RUN /usr/bin/download-mibs
 RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
+## fix prblem with mibs downloader and ubuntu 18.04
+RUN rm /usr/share/snmp/mibs/ietf/IPSEC-SPD-MIB \
+    && rm /usr/share/snmp/mibs/ietf/IPATM-IPMC-MIB \
+    && rm /usr/share/snmp/mibs/iana/IANA-IPPM-METRICS-REGISTRY-MIB \
+    && rm /usr/share/snmp/mibs/ietf/SNMPv2-PDU
 
 ##startup scripts
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't
