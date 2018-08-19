@@ -1,17 +1,19 @@
 #name of container: docker-cacti
-#versison of container: 0.6.1
-FROM quantumobject/docker-baseimage:16.04
+#versison of container: 0.6.2
+FROM quantumobject/docker-baseimage:18.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 ENV TZ America/New_York
 
 # Update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server mariadb-client php7.0 build-essential\
-                                                            apache2  snmp libapache2-mod-php7.0 libssl-dev \
-                                                            rrdtool librrds-perl php7.0-mysql\
-                                                            php7.0-xml php7.0-ldap php7.0-mbstring \
-                                                            php7.0-gd php7.0-snmp php7.0-gmp php7.0-mcrypt \
+RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive apt-get install -yq mariadb-server mariadb-client php build-essential\
+                                                            apache2 snmp libapache2-mod-php libssl-dev \
+                                                            rrdtool librrds-perl php-mysql php-pear \
+                                                            php-common php-json php-gettext \
+                                                            php-pspell php-recode php-tidy php-xmlrpc \
+                                                            php-xml php-ldap php-mbstring php-intl \
+                                                            php-gd php-snmp php-gmp php-curl php-net-socket\
                                                             libmysqlclient-dev libsnmp-dev help2man git \
                                                             snmpd python-netsnmp libnet-snmp-perl snmp-mibs-downloader \
                                                             iputils-ping \
@@ -30,11 +32,11 @@ RUN sed -i 's/^\(session\s\+required\s\+pam_loginuid\.so.*$\)/# \1/g' /etc/pam.d
 ##Get Mibs
 RUN /usr/bin/download-mibs
 RUN echo 'mibs +ALL' >> /etc/snmp/snmp.conf
-## fix prblem with mibs downloader and ubuntu 16.04
-RUN rm /usr/share/mibs/ietf/IPSEC-SPD-MIB \
-    && rm /usr/share/mibs/ietf/IPATM-IPMC-MIB \
-    && rm /usr/share/mibs/iana/IANA-IPPM-METRICS-REGISTRY-MIB \
-    && rm /usr/share/mibs/ietf/SNMPv2-PDU
+## fix prblem with mibs downloader and ubuntu 18.04
+RUN rm /usr/share/snmp/mibs/ietf/IPSEC-SPD-MIB \
+    && rm /usr/share/snmp/mibs/ietf/IPATM-IPMC-MIB \
+    && rm /usr/share/snmp/mibs/iana/IANA-IPPM-METRICS-REGISTRY-MIB \
+    && rm /usr/share/snmp/mibs/ietf/SNMPv2-PDU
 
 ##startup scripts
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't
@@ -63,7 +65,7 @@ RUN mkdir -p /etc/service/snmpd /var/log/snmpd ; sync
 COPY snmpd.sh /etc/service/snmpd/run
 RUN chmod +x /etc/service/snmpd/run  \
    && cp /var/log/cron/config /var/log/snmpd/ \
-   && chown -R snmp /var/log/snmpd
+   && chown -R Debian-snmp /var/log/snmpd
 
 #add files and script that need to be use for this container
 #include conf file relate to service/daemon
