@@ -14,7 +14,7 @@ RUN apt-get update && echo $TZ > /etc/timezone && DEBIAN_FRONTEND=noninteractive
                                                             php-pspell php-recode php-tidy php-xmlrpc \
                                                             php-xml php-ldap php-mbstring php-intl \
                                                             php-gd php-snmp php-gmp php-curl php-net-socket\
-                                                            libmysqlclient-dev libsnmp-dev help2man git \
+                                                            libmysqlclient-dev libsnmp-dev dos2unix help2man git \
                                                             snmpd python-netsnmp libnet-snmp-perl snmp-mibs-downloader \
                                                             iputils-ping \
                     && cd /opt/ \
