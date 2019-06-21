@@ -62,7 +62,9 @@ wget http://www.cacti.net/downloads/spine/cacti-spine-latest.tar.gz
 ver=$(tar -tf cacti-spine-latest.tar.gz | head -n1 | tr -d /)
 tar -xvf /opt/cacti-spine-latest.tar.gz
 cd /opt/$ver/
+./bootstrap 
 ./configure
 make
 make install
-
+chown root:root /usr/local/spine/bin/spine
+chmod +s /usr/local/spine/bin/spine
