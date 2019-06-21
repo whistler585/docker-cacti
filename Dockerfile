@@ -1,5 +1,5 @@
 #name of container: docker-cacti
-#versison of container: 0.6.2
+#versison of container: 0.6.3
 FROM quantumobject/docker-baseimage:18.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
