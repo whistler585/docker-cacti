@@ -1,5 +1,5 @@
 cacti:
-  image: quantumobject/docker-cacti
+  image: whistler585/docker-cacti
   ports:
    - "80:80"
    - "161:161"
